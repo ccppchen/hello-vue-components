@@ -81,6 +81,7 @@
       "vue/multiline-html-element-content-newline": "error",
       "vue/singleline-html-element-content-newline": "error",
       "vue/no-spaces-around-equal-signs-in-attribute": "error",
+      "vue/max-attributes-per-line": "off",
       "vue/script-indent": [
         "error",
         2,
