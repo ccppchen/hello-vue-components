@@ -2,6 +2,7 @@ const path = require('path')
 const { IgnorePlugin } = require('webpack')
 
 module.exports = {
+  productionSourceMap: false,
   chainWebpack: config => {
     config
       .entry('app')

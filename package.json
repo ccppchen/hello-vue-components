@@ -1,5 +1,5 @@
 {
-  "name": "hello-vue-components",
+  "name": "deepq-components",
   "private": true,
   "scripts": {
     "dev": "node build-utils/update-index-file.js && vue-cli-service serve",
@@ -13,11 +13,10 @@
   "gitHooks": {
     "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@vue/cli-plugin-babel": "^3.1.0",
-    "@vue/cli-plugin-e2e-cypress": "^3.1.0",
+    "@vue/cli-plugin-e2e-cypress": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.1.0",
     "@vue/cli-plugin-unit-jest": "^3.1.0",
     "@vue/cli-service": "^3.1.0",
@@ -29,6 +28,7 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.4",
     "cross-env": "^5.2.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-vue": "^5.2.2",
     "fs-extra": "^7.0.1",
     "globby": "^9.0.0",
@@ -107,10 +107,7 @@
           "parser": "babel-eslint",
           "sourceType": "module"
         },
-        "plugins": ["cypress"],
-        "env": {
-          "cypress/globals": true
-        }
+        "plugins": ["cypress"]
       },
       {
         "files": ["**/*.unit.js"],
@@ -213,5 +210,8 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "runtime-import": "^1.0.12"
   }
 }

@@ -21,13 +21,13 @@ const vueCliServicePath = getPath('../node_modules/.bin/vue-cli-service')
 fs.emptyDirSync(getPath('../packages'))
 
 // Build the main lib, with all components packaged into a plugin
-console.info('🏗 Building main library')
-execSync(
-  `${vueCliServicePath} build src/index.js --target lib --name index --dest dist/`
-)
-// Rename the CommonJS build so that it can be imported with
-// ${libConfig}/dist
-renameIndex()
+// console.info('🏗 Building main library')
+// execSync(
+//   `${vueCliServicePath} build src/index.js --target lib --name index --dest dist/`
+// )
+// // Rename the CommonJS build so that it can be imported with
+// // ${libConfig}/dist
+// renameIndex()
 
 // For each component in the src directory...
 for (const componentName of componentNames) {
@@ -55,15 +55,21 @@ if (process.env.VUE_APP_E2E) {
 
 function renameIndex(componentName) {
   const builds = [
+    // {
+    //   type: 'common',
+    //   dest: 'cjs'
+    // },
+    // {
+    //   type: 'umd'
+    // },
+    // {
+    //   type: 'umd.min'
+    // }
     {
-      type: 'common',
-      dest: 'cjs'
+      type: 'common'
     },
     {
       type: 'umd'
-    },
-    {
-      type: 'umd.min'
     }
   ]
 
@@ -96,16 +102,15 @@ function renameIndex(componentName) {
     if (!fs.existsSync(destFolder)) {
       fs.mkdirSync(destFolder)
     }
-    const oldMapPath = oldIndexPath + '.map'
-    const newMapPath = newIndexPath + '.map'
+    // const oldMapPath = oldIndexPath + '.map'
+    // const newMapPath = newIndexPath + '.map'
 
     fs.renameSync(oldIndexPath, newIndexPath)
-    fs.renameSync(oldMapPath, newMapPath)
+    // fs.renameSync(oldMapPath, newMapPath)
     fs.writeFileSync(
       newIndexPath,
-      fs
-        .readFileSync(newIndexPath, { encoding: 'utf8' })
-        .replace(path.basename(oldMapPath), path.basename(newMapPath))
+      fs.readFileSync(newIndexPath, { encoding: 'utf8' })
+      // .replace(path.basename(oldMapPath), path.basename(newMapPath))
     )
   }
 

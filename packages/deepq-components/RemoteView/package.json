@@ -1,0 +1,25 @@
+{
+  "name": "deepq-components.remote-view",
+  "description": "A component that says \"HelloB\" with green text.",
+  "author": {
+    "name": "chenpeng",
+    "email": "chenpeng@shenqingtech.com",
+    "github": "ccppchen"
+  },
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/deepq-components.remote-view",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccppchen/deepq-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccppchen/deepq-components/issues"
+  },
+  "module": "index.js",
+  "main": "cjs/index.js",
+  "unpkg": "umd/index.min.js",
+  "jsdelivr": "umd/index.min.js",
+  "peerDependencies": {
+    "vue": ">=2.0.0"
+  }
+}
